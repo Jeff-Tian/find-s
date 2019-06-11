@@ -32,6 +32,62 @@ npm install find-s
 ```
 
 ## 使用
+```typescript
+import { findS } from 'find-s'
+
+const samples = [
+  {
+    Sky: 'Sunny',
+    AirTemp: 'Warm',
+    Humidity: 'Normal',
+    Wind: 'Strong',
+    Water: 'Warm',
+    Forecast: 'Same',
+    EnjoySport: 'Yes'
+  },
+
+  {
+    Sky: 'Sunny',
+    AirTemp: 'Warm',
+    Humidity: 'High',
+    Wind: 'Strong',
+    Water: 'Warm',
+    Forecast: 'Same',
+    EnjoySport: 'Yes'
+  },
+
+  {
+    Sky: 'Rainy',
+    AirTemp: 'Cold',
+    Humidity: 'High',
+    Wind: 'Strong',
+    Water: 'Warm',
+    Forecast: 'Change',
+    EnjoySport: 'No'
+  },
+
+  {
+    Sky: 'Sunny',
+    AirTemp: 'Warm',
+    Humidity: 'High',
+    Wind: 'Strong',
+    Water: 'Cool',
+    Forecast: 'Change',
+    EnjoySport: 'Yes'
+  }
+]
+
+const res = findS(samples, 'EnjoySport', ['Sky', 'AirTemp', 'Humidity', 'Wind', 'Water', 'Forecast'])
+
+assert.deepStrictEqual(res, {
+        Sky: 'Sunny',
+        AirTemp: 'Warm',
+        Humidity: '?',
+        Wind: 'Strong',
+        Water: '?',
+        Forecast: '?'
+      })
+```
 
 ## 开发
 
